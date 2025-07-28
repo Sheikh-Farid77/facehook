@@ -2,23 +2,46 @@ import { useForm } from "react-hook-form";
 import Field from "../common/Field";
 import { useNavigate } from "react-router";
 import useAuth from "../../hook/useAuth";
+import axios from "axios";
 
 export default function LoginForm() {
     const navigate = useNavigate();
-    const {setAuth} = useAuth();
+    const { setAuth } = useAuth();
 
     const { register,
         handleSubmit,
-        formState: { errors }
+        formState: { errors },
+        setError
     } = useForm();
 
-    const submitForm = (formData) => {
-     const user = {...formData};
+    const submitForm = async (formData) => {
 
-     setAuth({user})
-     
 
-        navigate('/')
+        try {
+            const response = await axios.post(`${import.meta.env.VITE_SERVER_BASE_URL}/auth/login`, formData)
+            if (response.status === 200) {
+                const { token, user } = response.data;
+
+                if (token) {
+                    const authToken = token.token;
+                    const refreshToken = token.refreshToken;
+
+                    console.log(`Login time: ${authToken}`)
+                    setAuth({ user, authToken, refreshToken })
+                    navigate('/')
+                }
+            }
+
+
+
+        } catch (error) {
+            console.log(error)
+            setError("root.random", {
+                type: "random",
+                message: `user with email ${formData.email} is not found`
+            })
+        }
+
 
     }
     return (
@@ -49,10 +72,10 @@ export default function LoginForm() {
                     id="password" />
 
             </Field>
-
+            <p className="text-red-500">{errors?.root?.random?.message}</p>
             <Field>
                 <button
-                    className="auth-input bg-lwsGreen font-bold text-deepDark transition-all hover:opacity-90"
+                    className="auth-input bg-lwsGreen font-bold text-deepDark transition-all hover:opacity-90 cursor-pointer"
                     type="submit"
                 >
                     Login
