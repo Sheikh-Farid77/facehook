@@ -33,7 +33,7 @@ export default function Header() {
                         <button className="flex-center !ml-8 gap-3 cursor-pointer">
                             <span className="text-lg font-medium lg:text-xl">{user?.firstName} {user?.lastName}</span>
                             <img className="max-h-[32px] max-w-[32px] lg:max-h-[44px] lg:max-w-[44px] rounded-full"
-                                src={`${import.meta.env.VITE_SERVER_BASE_URL}/${user.avatar}`} alt="" />
+                                src={`${import.meta.env.VITE_SERVER_BASE_URL}/${user.avatar}`} alt="avatar" />
                         </button>
                     </Link>
                 </div>

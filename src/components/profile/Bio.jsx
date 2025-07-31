@@ -42,7 +42,7 @@ export default function Bio() {
             {state?.user?.bio}
           </p>) : (
             <textarea
-              className="p-2 leading-[188%] text-gray-600 lg:text-lg rounded-md"
+              className="p-2 leading-[188%] text-gray-600 lg:text-lg rounded-md bg-white"
               value={bio}
               rows={4}
               cols={55}

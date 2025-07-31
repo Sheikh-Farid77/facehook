@@ -43,7 +43,7 @@ export default function ProfileImage() {
             className="relative mb-8 max-h-[180px] max-w-[180px] rounded-full lg:mb-11 lg:max-h-[218px] lg:max-w-[218px]"
         >
             <img
-                className="max-w-full rounded-full"
+                className="w-[300px] h-[200px] rounded-full"
                 src={`${import.meta.env.VITE_SERVER_BASE_URL}/${state?.user?.avatar}`}
                 alt={state?.user?.firstName}
             />

@@ -33,7 +33,7 @@ export default function ProfilePage() {
             }
         }
         fetchProfile();
-    }, [api, auth?.user?.id, dispatch])
+    }, [])
 
     if(state?.loading) return <div>Your profile data is loading....</div>
     return (
