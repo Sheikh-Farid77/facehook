@@ -30,6 +30,20 @@ const postReducer = (state, action) => {
                 error: action.error
             }
         }
+        case actions.post.DATA_CREATED: {
+            return {
+                ...state,
+                loading: false,
+                posts: [...state.posts, action?.data]
+            }
+        }
+        case actions.post.POST_DELETED: {
+            return {
+                ...state,
+                loading: false,
+                posts: state.posts.filter(post => post?.id !== action?.data),
+            }
+        }
 
 
 

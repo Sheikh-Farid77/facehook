@@ -1,5 +1,4 @@
 import { useState } from "react";
-import useAvatar from "../hook/useAvatar";
 import PostCommentList from "./PostCommentList";
 import useAxios from "../hook/useAxios";
 import useAuth from "../hook/useAuth";

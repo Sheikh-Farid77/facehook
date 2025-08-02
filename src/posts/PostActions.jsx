@@ -25,22 +25,22 @@ export default function PostActions({post, commentCount }) {
 
     }
     return (
-        <div class="flex items-center justify-between py-6 lg:px-10 lg:py-8">
+        <div className="flex items-center justify-between py-6 lg:px-10 lg:py-8">
             <button
             onClick={handleLike}
-                class="flex-center gap-2 text-xs font-bold text-[#B8BBBF] hover:text-white lg:text-sm cursor-pointer"
+                className="flex-center gap-2 text-xs font-bold text-[#B8BBBF] hover:text-white lg:text-sm cursor-pointer"
             >
                 <img className='w-6' src={liked ? FilledLikeIcon : LikeIcon} alt="Like" />
              {!liked &&    <span>Like</span>}
             </button>
             <button
-                class="icon-btn space-x-2 px-6 py-3 text-xs lg:px-12 lg:text-sm cursor-pointer"
+                className="icon-btn space-x-2 px-6 py-3 text-xs lg:px-12 lg:text-sm cursor-pointer"
             >
                 <img src={CommentIcon} alt="Comment" />
                 <span>Comment({commentCount ?? 0})</span>
             </button>
             <button
-                class="flex-center gap-2 text-xs font-bold text-[#B8BBBF] hover:text-white lg:text-sm cursor-pointer"
+                className="flex-center gap-2 text-xs font-bold text-[#B8BBBF] hover:text-white lg:text-sm cursor-pointer"
             >
                 <img src={ShareIcon} alt="Share" />
                 <span>Share</span>
